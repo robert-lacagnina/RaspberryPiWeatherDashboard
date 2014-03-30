@@ -112,16 +112,11 @@
 
           });
 
-          $('#poopbtn').touchend(function() {
-              socket.emit('learnmore');
-          });
-
           //onclick make the call to the server to get hello world from socket.io
           $('#poopbtn').click(function() {
               socket.emit('learnmore');
           });
-
-                });
+      });
 
     </script>
   </body>
