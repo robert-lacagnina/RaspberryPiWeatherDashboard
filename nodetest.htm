@@ -123,14 +123,14 @@
 
           var xVal = 0;
           var yVal = 0; 
-          var dataLength = 500; // number of dataPoints visible at any point
+          var dataLength = 100; // number of dataPoints visible at any point
 
           var updateChart = function (count, temp) {
             count = count || 1;
             // count is number of times loop runs to generate random dataPoints.
             
             for (var j = 0; j < count; j++) { 
-              yVal = yVal + temp;
+              yVal = temp;
               dps.push({
                 x: xVal,
                 y: yVal
