@@ -1,10 +1,12 @@
 var express = require('express');
 var app = express();
-require('./routes')(app);
+var path = require('path');
+
 
 //serve static files
-/*app.use(express.static(__dirname + './public'));*/
+app.use(express.static(path.join(__dirname, 'public')));
 
+require('./routes')(app);
 app.use(app.router);
 
 //express web server
@@ -15,9 +17,6 @@ var server = app.listen(3000, function() {
 //socket io using express web server
 var io = require('socket.io').listen(server);
 
-io.sockets.on('connection', function (socket) {
-	//when the learnmore event is fired emit the message back to the client
-	socket.on('learnmore', function () {
-		socket.emit('message', { message : 'thanks for learning more!' });
-	});
+io.sockets.on('connection', function (socket) {	
+	require('./weathermodel').data(socket);
 });
