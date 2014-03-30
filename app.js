@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
-var routes = require('routes');
-//allow socket.io to be served to the client
-/*app.use(express.static(__dirname + '/socket.io/'));*/
+require('./routes')(app);
+
+//serve static files
+/*app.use(express.static(__dirname + './public'));*/
 
 app.use(app.router);
 

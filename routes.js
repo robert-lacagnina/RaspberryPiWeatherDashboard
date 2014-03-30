@@ -1,4 +1,4 @@
-exports.routes = function (app) {
+module.exports = function (app) {
 	//GET: / - load the main dashboad page
 	app.get('/', function(req, res){
 	  res.sendfile('./nodetest.htm');
